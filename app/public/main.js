@@ -13,7 +13,7 @@ for (let i = 0; i < labels.length; i++){
 function sumValues(fieldsToGrab, isMale) {
 	let total = 0
 	for (let i = 0; i < fieldsToGrab.length; i++) {
-		if (isMale) {			
+		if (isMale) {
 			total += parseInt(inputHash[fieldsToGrab[i] + "m"].value)
 		} else {
 			total += parseInt(inputHash[fieldsToGrab[i] + "f"].value)
@@ -64,6 +64,7 @@ function updateStockBalance(){
 
 $(document).ready(() => {
 	$(".measure_arrow").on("click", (e) => {
+		e.preventDefault();
 		let numberInput = $(e.currentTarget).parent().siblings(".measure_input")[0]
 		let inputValue
 		if (numberInput.value == "") {
@@ -87,18 +88,3 @@ $(document).ready(() => {
 		updateStockBalance()
 	})
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

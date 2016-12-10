@@ -1380,7 +1380,7 @@
 					<h3 class="ms_title">Comments</h3>
 					<div class="ms_box">
 						<textarea name="" id="comments" class="measure_comments" placeholder="Please enter details of information that will support the interpretation of monthly data (for example, explanation for discrepancies, details of stock-outs, increases in admissions, higher than expected death or defaulter rates, information on mass screening etc)."></textarea>
-						<input type="submit" href="#" class="btn btn-success btn-large">
+						<button id="submit_button" class="btn btn-success btn-large">Submit</button>
 						<a href="#" class="btn btn-primary btn-large">Approve</a>
 					</div>
 				</div>
@@ -1411,12 +1411,12 @@
 				// Local database
 				var local = new PouchDB('reports');
 
-				// Remote database
+				// Try connecting to Remote database
 				var remote = new PouchDB('https://anirudh.cloudant.com/reports',  {
 					auth: authValue
 				});
 
-				// syncing to remote
+				// Try syncing to remote
 				local.sync(remote)
 				.on('complete', function () {
 					console.log("synced");
@@ -1425,7 +1425,8 @@
 					console.log("Error syncing: " + err);
 				});
 
-				$('#main_form').submit(function(e){
+				$('#submit_button').click(function(e){
+					console.log("form submitted");
 					e.preventDefault();
 
 					var data = {
@@ -1515,16 +1516,12 @@
 					local.sync(remote)
 					.on('complete', function () {
 						console.log("synced");
+						window.location.reload();
 					})
 					.on('error', function (err) {
 						console.log("Error syncing: " + err);
+						window.location.reload();
 					});
-
-					remote.allDocs({'include_docs': true}).then((result)=>{
-						result.rows.forEach((item)=>{
-							console.log(item);
-						})
-					})
 				})
 			})
 			.catch(function(error) {
@@ -1533,7 +1530,7 @@
 		}
 
 	</script>
-	<script src="test\test.js"></script>
+	<!-- <script src="test\test.js"></script>
 	<script>
 		function displayAlert(message){
 			alert(message);
@@ -1555,7 +1552,7 @@
 			}
 			http.send(params);
 		}
-	</script>
+	</script> -->
 	</body>
 
 </html>
