@@ -11,42 +11,51 @@
       Offline here we come
     </p>
   </body>
+
   <script src="pouchdb.min.js"></script>
+  <script src="pouchdbConfig.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
       .then(function(reg) {
         console.log('Registration succeeded');
-      }).catch(function(error) {
+
+        // Local database
+        var local = new PouchDB('reports');
+
+        // Remote database
+        var remote = new PouchDB('https://anirudh.cloudant.com/reports',  {
+          auth: authValue
+        });
+
+
+        // var report = {
+        //   _id: 'report3',
+        //   title: "Test",
+        //   gender: "Male",
+        //   age: 17
+        // }
+        //
+        // local.put(report)
+
+        // syncing to remote
+        local.sync(remote)
+        .on('complete', function () {
+          console.log("synced");
+        })
+        .on('error', function (err) {
+          console.log("Error syncing: " + err);
+        });
+
+        remote.allDocs().then((result)=>{
+          console.log(result);
+          result.rows.forEach((item)=>{console.log(item);})
+        })
+      })
+      .catch(function(error) {
         console.log('Registration failed with ' + error);
       });
     }
-
-    // Local database
-    var local = new PouchDB('todos');
-
-    // Remote database
-    var remote = new PouchDB('http://localhost:5984/todos');
-
-    var report = {
-      _id: 'report1',
-      title: "Test",
-      gender: "Male",
-      age: 17:
-    }
-
-    local.put(report);
-
-    local.get('report1').then(function(data) {
-      console.log(data);
-    }).catch(function(error) {
-      console.log('error retrieving report1');
-    });
-
-    local.sync(remote, {
-      live: true,
-      retry: true
-    });
 
   </script>
 </html>
