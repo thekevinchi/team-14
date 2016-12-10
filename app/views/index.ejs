@@ -161,7 +161,7 @@
 				<li role="presentation"><a href="#awsgls" aria-controls="home" role="tab" data-toggle="tab">AWS/GLS</a></li>
 			</ul>
 
-			<form>
+			<form id="main_form">
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane" id="sc">
 						<div class="ms admissions">
@@ -1394,7 +1394,103 @@
 	<script src="pouchdb.min.js"></script>
   <script src="pouchdbConfig.js"></script>
 	<script>
-		
+
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('sw.js')
+			.then(function(reg) {
+				console.log('Registration succeeded');
+
+				// Local database
+				var local = new PouchDB('reports');
+
+				// Remote database
+				var remote = new PouchDB('https://anirudh.cloudant.com/reports',  {
+					auth: authValue
+				});
+
+				$('#main_form').submit(function(e){
+					e.preventDefault();
+					if (stock tab active){
+						var data = {
+							"type": "stock"
+			        "total_in_box": $('#total_in_box').val(),
+							"in_box": $('#in_box').val(),
+							"in_sachets": $('#in_sachets').val(),
+							"out_box": $('#out_box').val(),
+							"out_sachets": $('#out_sachets').val(),
+							"loss_box": $('#loss_box').val(),
+							"loss_sachets": $('#loss_sachets').val(),
+							"balance_box": $('#balance_box').val(),
+							"balance_sachets": $('#balance_sachets').val()
+						}
+					}
+					else if(otp tab is active){
+						var data = {
+							"type": "otp",
+				      "totalBeginning": "" {},
+			        "admissions": {
+			            "wfh_bmi_male": $('#am').val(),
+									"wfh_bmi_female": $('#af').val(),
+			            "muac_male": $('#').val(),
+									"muac_female": $('#').val(),
+			            "oedema_male": $('#').val(),
+									"oedema_female": $('#').val(),
+			            "relapse_male": $('#').val(),
+									"relapse_female": $('#').val(),
+			            "reAdmission_male": $('#').val(),
+									"reAdmission_female": $('#').val(),
+									"total_admission_male": $('#').val(),
+									"total_admission_female": $('#').val(),
+			        },
+			        "movedIn": {
+			            "movedFromSC_OTP": $('#').val(),
+			            "movedOther": $('#').val()
+			        },
+			        "discharges": {
+			            "promToOtp": $('#').val(),
+			            "recovered": $('#').val(),
+			            "death": $('#').val(),
+			            "defaulter": {
+			                "unconfirmed": $('#').val(),
+			                "confirmed": $('#').val()
+			            },
+			            "nonRecovery": {
+			                "medicalReferral":,
+			                "nonResponse": $('#').val(),
+			            }
+			          },
+		            "movedOut": {
+		                "otpToSc": $('#').val(),
+		                "otpToOtp": $('#').val()
+		            },
+				        "other": $('#').val()
+				      }
+					}
+
+					local.put(data)
+				})
+
+				// syncing to remote
+				local.sync(remote)
+				.on('complete', function () {
+					console.log("synced");
+				})
+				.on('error', function (err) {
+					console.log("Error syncing: " + err);
+				});
+
+				remote.allDocs({'include_docs': true}).then((result)=>{
+					console.log(result);
+					result.rows.forEach((item)=>{
+						console.log(item);
+					})
+				})
+			})
+			.catch(function(error) {
+				console.log('Registration failed with ' + error);
+			});
+		}
+
 	</script>
 </body>
 </html>
