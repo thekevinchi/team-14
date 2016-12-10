@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
 	<meta name="description" content="">
     <meta name="author" content="">
-	
+
 	<title>Front End</title>
 	<link href="bootstrap.min.css" rel="stylesheet">
 	<link href="main.css" rel="stylesheet">
@@ -142,7 +142,8 @@
 	                    </ul>
 	                </li>
 	                <li><a class="btn btn-warning btn-small" href="#">Sync</a></li>
-					 <li><a class="btn btn-warning btn-small" onclick="displayAlert('1')">Try me</a></li>
+					<li><a class="btn btn-warning btn-small" onclick="displayAlert('1')">Try me</a></li>
+					<li><a class="btn btn-warning btn-small" onclick="push_msg()">Send Msg</a></li>
 	                <li><a class="btn btn-success btn-small" href="#">Online</a></li>
 	            </ul>
 	        </div>
@@ -164,7 +165,7 @@
 
 			<form id="main_form">
 				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane" id="sc">
+					<div role="tabpanel" onclick="changeActive('sc')" class="tab-pane" id="sc">
 						<div class="ms admissions">
 							<h3 class="ms_title">Admissions</h3>
 							<div class="ms_box">
@@ -702,7 +703,7 @@
 						</div>
 					</div>
 
-					<div role="tabpanel" class="tab-pane" id="otp">
+					<div role="tabpanel" onclick="changeActive('otp')" class="tab-pane" id="otp">
 						<div class="ms admissions">
 							<h3 class="ms_title">Admissions</h3>
 							<div class="ms_box">
@@ -1240,10 +1241,10 @@
 						</div>
 					</div>
 
-					<div role="tabpanel" class="tab-pane" id="screening">
+					<div role="tabpanel" onclick="changeActive('screening')" class="tab-pane" id="screening">
 					</div>
 
-					<div role="tabpanel" class="tab-pane active" id="stock">
+					<div role="tabpanel" onclick="changeActive('stock')" class="tab-pane active" id="stock">
 
 						<div class="ms stockitem">
 							<h3 class="ms_title">Plumpy'nut</h3>
@@ -1371,15 +1372,15 @@
 						<button type="submit" class="btn btn-primary btn-block" style="margin-top:20px;">Add food</button>
 					</div>
 
-					<div role="tabpanel" class="tab-pane" id="awsgls">
+					<div role="tabpanel" onclick="changeActive('awsgls')" class="tab-pane" id="awsgls">
 					</div>
 				</div>
 
 				<div class="ms comments">
 					<h3 class="ms_title">Comments</h3>
 					<div class="ms_box">
-						<textarea name="" id="" class="measure_comments" placeholder="Please enter details of information that will support the interpretation of monthly data (for example, explanation for discrepancies, details of stock-outs, increases in admissions, higher than expected death or defaulter rates, information on mass screening etc)."></textarea>
-						<input type="submit" href="#" class="btn btn-success btn-large">
+						<textarea name="" id="comments" class="measure_comments" placeholder="Please enter details of information that will support the interpretation of monthly data (for example, explanation for discrepancies, details of stock-outs, increases in admissions, higher than expected death or defaulter rates, information on mass screening etc)."></textarea>
+						<button id="submit_button" class="btn btn-success btn-large">Submit</button>
 						<a href="#" class="btn btn-primary btn-large">Approve</a>
 					</div>
 				</div>
@@ -1395,8 +1396,14 @@
 	<script src="pouchdb.min.js"></script>
   <script src="pouchdbConfig.js"></script>
 	<script>
+		var activeTab = "stock";
+
+		function changeActive(newTab){
+			activeTab = newTab;
+		}
 
 		if ('serviceWorker' in navigator) {
+
 			navigator.serviceWorker.register('sw.js')
 			.then(function(reg) {
 				console.log('Registration succeeded');
@@ -1404,74 +1411,12 @@
 				// Local database
 				var local = new PouchDB('reports');
 
-				// Remote database
+				// Try connecting to Remote database
 				var remote = new PouchDB('https://anirudh.cloudant.com/reports',  {
 					auth: authValue
 				});
 
-				$('#main_form').submit(function(e){
-					e.preventDefault();
-					if (stock tab active){
-						var data = {
-							"type": "stock"
-			        "total_in_box": $('#total_in_box').val(),
-							"in_box": $('#in_box').val(),
-							"in_sachets": $('#in_sachets').val(),
-							"out_box": $('#out_box').val(),
-							"out_sachets": $('#out_sachets').val(),
-							"loss_box": $('#loss_box').val(),
-							"loss_sachets": $('#loss_sachets').val(),
-							"balance_box": $('#balance_box').val(),
-							"balance_sachets": $('#balance_sachets').val()
-						}
-					}
-					else if(otp tab is active){
-						var data = {
-							"type": "otp",
-				      "totalBeginning": "" {},
-			        "admissions": {
-			            "wfh_bmi_male": $('#am').val(),
-									"wfh_bmi_female": $('#af').val(),
-			            "muac_male": $('#').val(),
-									"muac_female": $('#').val(),
-			            "oedema_male": $('#').val(),
-									"oedema_female": $('#').val(),
-			            "relapse_male": $('#').val(),
-									"relapse_female": $('#').val(),
-			            "reAdmission_male": $('#').val(),
-									"reAdmission_female": $('#').val(),
-									"total_admission_male": $('#').val(),
-									"total_admission_female": $('#').val(),
-			        },
-			        "movedIn": {
-			            "movedFromSC_OTP": $('#').val(),
-			            "movedOther": $('#').val()
-			        },
-			        "discharges": {
-			            "promToOtp": $('#').val(),
-			            "recovered": $('#').val(),
-			            "death": $('#').val(),
-			            "defaulter": {
-			                "unconfirmed": $('#').val(),
-			                "confirmed": $('#').val()
-			            },
-			            "nonRecovery": {
-			                "medicalReferral":,
-			                "nonResponse": $('#').val(),
-			            }
-			          },
-		            "movedOut": {
-		                "otpToSc": $('#').val(),
-		                "otpToOtp": $('#').val()
-		            },
-				        "other": $('#').val()
-				      }
-					}
-
-					local.put(data)
-				})
-
-				// syncing to remote
+				// Try syncing to remote
 				local.sync(remote)
 				.on('complete', function () {
 					console.log("synced");
@@ -1480,11 +1425,103 @@
 					console.log("Error syncing: " + err);
 				});
 
-				remote.allDocs({'include_docs': true}).then((result)=>{
-					console.log(result);
-					result.rows.forEach((item)=>{
-						console.log(item);
+				$('#submit_button').click(function(e){
+					console.log("form submitted");
+					e.preventDefault();
+
+					var data = {
+						"_id": (new Date()).toISOString()
+					};
+
+					if (activeTab === "stock"){
+						data = {
+							"_id": (new Date()).toISOString(),
+							"type": "stock",
+							"in_sachets": $('#in_sachets').val(),
+							"out_sachets": $('#out_sachets').val(),
+							"loss_box": $('#loss_box').val(),
+							"loss_sachets": $('#loss_sachets').val(),
+							"balance_box": $('#balance_box').text(),
+							"balance_sachets": $('#balance_sachets').text(),
+							"comments": $('#comments').val()
+						}
+					}
+
+					else if(activeTab === "otp"){
+						var data = {
+							"_id": (new Date()).toISOString(),
+							"type": "otp",
+			        "admissions": {
+			            "wfh_bmi_male": $('#am').val(),
+									"wfh_bmi_female": $('#af').val(),
+			            "muac_male": $('#bm').val(),
+									"muac_female": $('#bf').val(),
+			            "oedema_male": $('#cm').val(),
+									"oedema_female": $('#cf').val(),
+			            "relapse_male": $('#dm').val(),
+									"relapse_female": $('#df').val(),
+			            "readmission_male": $('#em').val(),
+									"readmission_female": $('#ef').val(),
+									"total_admission_male": $('#Wm').text(),
+									"total_admission_female": $('#Wf').text(),
+			        },
+			        "moved_in": {
+			            "from_scopt_male": $('#fm').val(),
+									"from_scopt_female": $('#ff').val(),
+			            "other_male": $('#gm').val(),
+									"other_female": $('#gf').val(),
+									"total_male": $('#Ym').text(),
+									"total_female": $('#Yf').text()
+			        },
+			        "discharges": {
+		            "recovered_male": $('#hm').val(),
+								"recovered_female": $('#hf').val(),
+								"death_male": $('#im').val(),
+								"death_female": $('#if').val(),
+								"unconfirmed_male": $('#jm').val(),
+								"unconfirmed_female": $('#jf').val(),
+								"confirmed_male": $('#km').val(),
+								"confirmed_female": $('#kf').val(),
+								"medical_referral_male": $('#lm').val(),
+								"medical_referral_female": $('#lf').val(),
+								"non_response_male": $('#mm').val(),
+								"non_response_female": $('#mf').val(),
+								"total_discharges_male": $('#Xm').text(),
+								"total_discharges_female": $('#Xf').text()
+		          },
+							"moved_out": {
+			            "otp_to_sc_male": $('#nm').val(),
+									"otp_to_sc_female": $('#nf').val(),
+			            "otp_to_otp_male": $('#om').val(),
+									"otp_to_otp_female": $('#of').val(),
+									"other_male": $('#pm').val(),
+									"other_female": $('#pf').val(),
+									"total_male": $('#Zm').text(),
+									"total_female": $('#Zf').text()
+			        },
+		          "total": {
+								"beginning_male": $('#Vm').text(),
+								"beginning_female": $('#Vf').text(),
+								"end_male": $('#Fm').text(),
+								"end_female": $('#Ff').text()
+							},
+							"comments": $('#comments').val()
+				    }
+					}
+
+					// storing the data locally
+					local.put(data)
+
+					// syncing to remote
+					local.sync(remote)
+					.on('complete', function () {
+						console.log("synced");
+						window.location.reload();
 					})
+					.on('error', function (err) {
+						console.log("Error syncing: " + err);
+						window.location.reload();
+					});
 				})
 			})
 			.catch(function(error) {
@@ -1493,10 +1530,29 @@
 		}
 
 	</script>
-<script src="test\test.js"></script>
-<script> function displayAlert(message){
-alert(message);	
-}</script>
+	<!-- <script src="test\test.js"></script>
+	<script>
+		function displayAlert(message){
+			alert(message);
+		}
+
+		function push_msg(){
+			var http = new XMLHttpRequest();
+			var url = "http://52.212.233.140:8000/egress/";
+			var params = {'target_number':'+447519825308','message':'hello'};
+			http.open("POST", url, true);
+
+		//Send the proper header information along with the request
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+			http.onreadystatechange = function() {//Call a function when the state changes.
+				if(http.readyState == 4 && http.status == 200) {
+					alert(http.responseText);
+				}
+			}
+			http.send(params);
+		}
+	</script> -->
 	</body>
 
 </html>
