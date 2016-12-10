@@ -1,0 +1,242 @@
+.navbar .btn {
+    padding: 5px !important;
+    margin: 10px !important;
+    color: white !important;
+}
+
+.nav-pills .active a {
+	background-color: #BA0093 !important;
+}
+
+/* Measurements */
+
+.ms {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.ms_title {
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.ms_box {
+	width: 100%;
+	max-width: 840px;
+	padding: 24px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.measure {
+	width: 100%;
+	max-width: 250px;
+	display: flex;
+	flex-flow: column nowrap;
+	margin-bottom: 10px;
+}
+
+.admissions {
+	background-color: #2E9F68;
+}
+.admissions .measure {
+	background-color: #39D068;
+}
+.admissions .measure.aggregate {
+	background-color: #136C4E;	
+}
+.admissions .measure_input:focus {
+	border-color: white;
+	background-color: #35B368;
+}
+
+.movement_out,
+.movement_in {
+	background-color: #F1A324;
+}
+.movement_out .measure,
+.movement_in .measure {
+	background-color: #FFBF37;
+}
+.movement_out .measure.aggregate,
+.movement_in .measure.aggregate {
+	background-color: #D78A1D;	
+}
+.movement_out .measure_input:focus,
+.movement_in .measure_input:focus {
+	border-color: white;
+	background-color: #E2A931;
+}
+
+.discharges {
+	background-color: #E80D28;
+}
+.discharges .measure {
+	background-color: #ED4257;
+}
+.discharges .measure.aggregate {
+	background-color: #B5192C;	
+}
+.discharges .measure_input:focus {
+	border-color: white;
+	background-color: #B5192C;
+}
+
+.total {
+	background-color: #309CCA;
+}
+.total .measure {
+	background-color: #158FB7;
+}
+.total .measure.aggregate {
+	background-color: #104D68;	
+}
+.total .measure_input:focus {
+	border-color: white;
+	background-color: #104D68;
+}
+
+.stockitem {
+	background-color: #99514A;
+}
+.stockitem .measure {
+	background-color: #AA735E;
+}
+.stockitem .measure.aggregate {
+	background-color: #80403E;	
+}
+.stockitem .measure_input:focus {
+	border-color: white;
+	background-color: #934432;
+}
+
+.comments {
+	background-color: #aaa;
+}
+
+.measure_title {
+	color: white;
+	text-align: center;
+	font-size: 18px;
+    margin: 10px 0;
+}
+.measure_box {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	padding: 10px;
+}
+.measure_gender {
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 0 20px;
+}
+.measure_gender:first-child {
+	border-right: 2px solid white;
+}
+.stockitem .measure_gender:first-child {
+	border-right: none;
+}
+.measure_inputbox {
+	display: flex;
+	flex-flow: row nowrap;	
+}
+.measure_input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-color: transparent;
+	color: white !important;
+	font-size: 30px;
+	line-height: 1;
+	outline: 0;
+	border: none;
+	width: 60px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 3px;
+	border-bottom: 2px solid transparent;
+	transition: background-color 0.3s ease;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.stockitem .measure_input {
+	width: 100%;
+}
+
+.measure_input::-webkit-input-placeholder {
+	color: white;
+}
+.measure_arrows {
+	margin-left: 5px;
+	display: flex;
+	flex-flow: column nowrap;
+}
+.measure_arrow{
+	background-color: transparent;
+	outline: 0;
+	margin: 0;
+	padding: 0;
+	width: 0; 
+	height: 0; 
+	border-top: none;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 15px solid white;
+}
+.measure_arrow.down{
+	margin-top: 10px;
+	transform: rotate(180deg);
+}
+.measure_sex {
+	font-size: 18px;
+	text-transform: uppercase;
+	color: white;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.comments .ms_box {
+	display: flex;
+	flex-direction: column;
+}
+
+.measure_comments {
+	background-color: white;
+	color: #4c4c4c;
+	font-size: 16px;
+	line-height: 1.2;
+	border: none;
+	outline: 0;
+	min-height: 150px;
+	padding: 10px;
+	resize: vertical;
+}
+
+.measure_comments::-webkit-input-placeholder {
+	color: #aaa;
+}
+
+.comments .btn {
+	margin-top: 20px;
+}
+
+@media (max-width: 500px) {
+	h1 {
+		font-size: 24px;
+		margin: 20px 10px;
+	}
+	.ms_box {
+		padding: 0;
+	}
+	.measure {
+		max-width: none;
+	}
+}

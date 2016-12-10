@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+	<meta name="description" content="">
+    <meta name="author" content="">
+
+	<title>Front End</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
+	<link href="main.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	    <div class="container">
+	        <!-- Brand and toggle get grouped for better mobile display -->
+	        <div class="navbar-header">
+	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="#">CAMReport</a>
+	        </div>
+
+	        <!-- Collect the nav links, forms, and other content for toggling -->
+	        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	            <ul class="nav navbar-nav">
+	                <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+
+	                <li class="dropdown">
+			            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+			            <ul class="dropdown-menu">
+			               
+			                <li class="dropdown-header">Configure</li>
+
+			                <li>
+			                    <a href="#">
+			                        Agencies
+			                    </a>
+			                </li>
+
+			                <li>
+			                    <a href="#">
+			                        Contextual Information
+			                    </a>
+			                </li>
+			                
+			                <li>
+			                    <a href="#">
+			                        Countries and Regions
+			                    </a>
+			                </li>
+			                
+			                <li>
+			                    <a href="#">
+			                        Donors
+			                    </a>
+			                </li>
+			                
+			                <li>
+			                    <a href="#">
+			                        Feeding Sites
+			                    </a>
+			                </li>
+			                
+			                <li>
+			                    <a href="#">
+			                        Feeding Sites
+			                    </a>
+			                </li>
+
+			                <li>
+			                    <a href="#">
+			                        Grants
+			                    </a>
+			                </li>
+			                
+			                <li>
+			                    <a href="#">
+			                        Products
+			                    </a>
+			                </li>
+
+			                <li>
+			                    <a href="#">
+			                        Users
+			                    </a>
+			                </li>
+			                
+			                <li class="dropdown-header">Diagnostics</li>
+			                <li>
+			                    <a href="#">Delete Offline Data</a>
+			                </li>
+			                <li>
+			                    <a href="#">Backup</a>
+			                </li>
+			                <li>
+			                    <a href="#">Restore</a>
+			                </li>
+			            </ul>
+					</li>
+
+	                <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/Feeding/Feeding/MyReports">
+                                    My Current Work
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/Feeding/Feeding/FeedingReportSearch">
+                                    Monthly Reports
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/Surveys/Surveys/Search">
+                                    Surveys
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+	                <li><a href="#">Analysis</a></li>
+	            </ul>
+
+	            <ul class="nav navbar-nav navbar-right">
+	                <li class="dropdown">
+	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DM Action Now<span class="caret"></span></a>
+	                    <ul class="dropdown-menu">
+	                        <li><a href="#">Data Manager</a>
+	                        </li>
+	                        <li><a href="#">Log Out</a>
+	                        </li>
+	                        </li>
+	                    </ul>
+	                </li>
+	                <li><a class="btn btn-warning btn-small" href="#">Sync</a></li>
+	                <li><a class="btn btn-success btn-small" href="#">Online</a></li>
+	            </ul>
+	        </div>
+	        <!-- /.navbar-collapse -->
+	    </div>
+	    <!-- /.container-fluid -->
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<h1>Kutum (Garissa) - Jan 2017</h1>
+			<ul class="nav nav-pills">
+				<li role="presentation"><a href="#sc" aria-controls="home" role="tab" data-toggle="tab">SC</a></li>
+				<li role="presentation"><a href="#otp" aria-controls="home" role="tab" data-toggle="tab">OTP</a></li>
+				<li role="presentation"><a href="#screening" aria-controls="home" role="tab" data-toggle="tab">Screening</a></li>
+				<li role="presentation" class="active"><a href="#stock" aria-controls="home" role="tab" data-toggle="tab">Stock</a></a></li>
+				<li role="presentation"><a href="#awsgls" aria-controls="home" role="tab" data-toggle="tab">AWS/GLS</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane" id="sc">
+					<div class="ms admissions">
+						<h3 class="ms_title">Admissions</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">WFH/BMI (a)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">MUAC (b)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Oedema (c)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Relapse (d)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Re-admission (e)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total Admissions (W)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ms movement_in">
+						<h3 class="ms_title">Movements In</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">Moved in from SC/OTP (f)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Other (g)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total In (Y)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ms discharges">
+						<h3 class="ms_title">Discharges</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">Recovered (h)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Death (i)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Unconfirmed (j)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Confirmed (k)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Medical Referral (l)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Non-response (m)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total Discharges (X)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ms movement_out">
+						<h3 class="ms_title">Movements Out</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">OTP to SC (n)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">OTP to OTP (o)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Other (p)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total Out (Z)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ms total">
+						<h3 class="ms_title">Total</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">Total Beginning of Period (V)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total End of Period</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div role="tabpanel" class="tab-pane" id="otp">
+					<div class="ms admissions">
+						<h3 class="ms_title">Admissions</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">WFH/BMI (a)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="am"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="af"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">MUAC (b)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="bm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="bf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Oedema (c)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="cm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="cf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Relapse (d)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="dm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="df"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Re-admission (e)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="em"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="ef"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total Admissions (W)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Wm">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Wf">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ms movement_in">
+						<h3 class="ms_title">Movements In</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">Moved in from SC/OTP (f)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="fm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="ff"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Other (g)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="gm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="gf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total In (Y)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Ym">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Yf">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ms discharges">
+						<h3 class="ms_title">Discharges</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">Recovered (h)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="hm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="hf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Death (i)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="im"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="if"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Unconfirmed (j)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="jm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="jf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Confirmed (k)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="km"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="kf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Medical Referral (l)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="lm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="lf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Non-response (m)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="mm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="mf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total Discharges (X)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Xm">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Xf">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ms movement_out">
+						<h3 class="ms_title">Movements Out</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">OTP to SC (n)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="nm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="nf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">OTP to OTP (o)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="om"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="of"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Other (p)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="pm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="pf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total Out (Z)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Zm">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Zf">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ms total">
+						<h3 class="ms_title">Total</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">Total Beginning of Period (V)</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="Vm"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="Vf"></input>
+											<div class="measure_arrows">
+												<button class="measure_arrow up"></button>
+												<button class="measure_arrow down"></button>
+											</div>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Total End of Period</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Fm">0</span>
+										</div>
+										<div class="measure_sex">MALE</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="Ff">0</span>
+										</div>
+										<div class="measure_sex">FEMALE</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div role="tabpanel" class="tab-pane" id="screening">
+				</div>
+				
+				<div role="tabpanel" class="tab-pane active" id="stock">
+
+					<div class="ms stockitem">
+						<h3 class="ms_title">Plumpy'nut</h3>
+						<div class="ms_box">
+							<div class="measure">
+								<h3 class="measure_title">Single Box contains</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="total_in_box"></input>
+										</div>
+										<div class="measure_sex">SACHETS</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">In</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="in_box"></input>
+										</div>
+										<div class="measure_sex">BOXES</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="in_sachets"></input>
+										</div>
+										<div class="measure_sex">SACHETS</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Out</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="out_box"></input>
+										</div>
+										<div class="measure_sex">BOXES</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="out_sachets"></input>
+										</div>
+										<div class="measure_sex">SACHETS</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure">
+								<h3 class="measure_title">Loss</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="loss_box"></input>
+										</div>
+										<div class="measure_sex">BOXES</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<input class="measure_input" value="0" type="number" id="loss_sachets"></input>
+										</div>
+										<div class="measure_sex">SACHETS</div>
+									</div>
+								</div>
+							</div>
+							<div class="measure aggregate">
+								<h3 class="measure_title">Balance</h3>
+								<div class="measure_box">
+									<div class="measure_gender male">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="balance_box">0</span>
+										</div>
+										<div class="measure_sex">BOXES</div>
+									</div>
+									<div class="measure_gender female">
+										<div class="measure_inputbox">
+											<span class="measure_input" id="balance_sachets">0</span>
+										</div>
+										<div class="measure_sex">SACHETS</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<select class="form-control" style="margin-top: 20px;">
+						<option value="">Add another product</option>
+						<option value="">Advantage</option>
+						<option value="">ASL TEST 123</option>
+						<option value="">Corn soya blend (CSB)</option>
+						<option value="">eeZeeCup</option>
+						<option value="">eeZeePaste</option>
+						<option value="">eeZeeRUSF</option>
+						<option value="">F-100</option>
+						<option value="">F-75</option>
+						<option value="">First food</option>
+						<option value="">Foundaton Plus</option>
+						<option value="">High energy biscuits</option>
+						<option value="">Maize</option>
+						<option value="">Micronutrient powders (MNP)</option>
+						<option value="">Nutributter</option>
+						<option value="">Oil </option>
+						<option value="">Other (Please specify)</option>
+						<option value="">Other (Please specify)</option>
+						<option value="">Other RUTF (Please specify)</option>
+						<option value="">Plumpy Mum</option>
+						<option value="">Plumpy Soy</option>
+						<option value="">Plumpy'doz</option>
+						<option value="">Plumpy'sup/ Supplementary Plumpy</option>
+						<option value="">Pulses </option>
+						<option value="">Rice</option>
+						<option value="">Rice soya blend (RSB)</option>
+						<option value="">Sorghum</option>
+						<option value="">Sugar</option>
+						<option value="">Supercereal CSB (CSB+)</option>
+						<option value="">Supercereal Plus CSB (CSB++)</option>
+						<option value="">Supercereal Plus RSB (RSB++)</option>
+						<option value="">Supercereal Plus WSB (WSB++)</option>
+						<option value="">Supercereal RSB (RSB+)</option>
+						<option value="">Supercereal WSB (WSB+)</option>
+						<option value="">WawaMum</option>
+						<option value="">Wheat flour</option>
+						<option value="">Wheat soya blend (WSB)</option>
+					</select>
+					<button type="submit" class="btn btn-primary btn-block" style="margin-top:20px;">Add food</button>
+				</div>
+				
+				<div role="tabpanel" class="tab-pane" id="awsgls">
+				</div>
+			</div>
+			<div class="ms comments">
+				<h3 class="ms_title">Comments</h3>
+				<div class="ms_box">
+					<textarea name="" id="" class="measure_comments" placeholder="Please enter details of information that will support the interpretation of monthly data (for example, explanation for discrepancies, details of stock-outs, increases in admissions, higher than expected death or defaulter rates, information on mass screening etc)."></textarea>
+					<a href="#" class="btn btn-success btn-large">Save</a>
+					<a href="#" class="btn btn-primary btn-large">Approve</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
