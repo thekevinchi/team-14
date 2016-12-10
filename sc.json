@@ -1,0 +1,32 @@
+{
+    "SC": {
+        "totalBeginning": "" {
+        },
+        "admissions": {
+            "wfh_bmi": "0",
+            "muac": "0",
+            "oedema": "0",
+            "relapse": "0",
+            "reAdmission": "0",
+        },
+        "movedIn": {
+            "movedFromOtp": "0",
+            "movedOther": "0"
+        },
+        "discharges": {
+            "promToOtp": "0",
+            "recovered": "0",
+            "death": "0",
+            "defaulter": {
+                "unconfirmed": "0",
+                "confirmed": "0"
+            },
+            "nonRecovery": {
+                "medicalReferral": "0",
+                "nonResponse": "0",
+            }
+          },
+            "other": "0" {
+        }
+      }
+    }
