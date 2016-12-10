@@ -11,7 +11,7 @@
       Offline here we come
     </p>
   </body>
-
+  <script src="pouchdb.min.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -21,5 +21,32 @@
         console.log('Registration failed with ' + error);
       });
     }
+
+    // Local database
+    var local = new PouchDB('todos');
+
+    // Remote database
+    var remote = new PouchDB('http://localhost:5984/todos');
+
+    var report = {
+      _id: 'report1',
+      title: "Test",
+      gender: "Male",
+      age: 17:
+    }
+
+    local.put(report);
+
+    local.get('report1').then(function(data) {
+      console.log(data);
+    }).catch(function(error) {
+      console.log('error retrieving report1');
+    });
+
+    local.sync(remote, {
+      live: true,
+      retry: true
+    });
+
   </script>
 </html>

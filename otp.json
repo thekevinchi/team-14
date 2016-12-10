@@ -1,7 +1,6 @@
 {
-    "SC": {
-        "totalBeginning": "" {
-        },
+    "OTP": {
+        "totalBeginning": "" {},
         "admissions": {
             "wfh_bmi": "0",
             "muac": "0",
@@ -10,7 +9,7 @@
             "reAdmission": "0",
         },
         "movedIn": {
-            "movedFromOtp": "0",
+            "movedFromSC_OTP": "0",
             "movedOther": "0"
         },
         "discharges": {
@@ -26,7 +25,10 @@
                 "nonResponse": "0",
             }
           },
+            "movedOut": {
+                "otpToSc": "0",
+                "otpToOtp": "0"
+            },
             "other": "0" {
+            },
         }
-      }
-    }
