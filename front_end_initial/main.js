@@ -39,6 +39,29 @@ function updateAllLabels(){
 	labelsHash["Ff"].innerText = sumValues("V", false) + parseInt(labelsHash["Yf"].innerText) - parseInt(labelsHash["Zf"].innerText)
 }
 
+function updateStockBalance(){
+	let total_in_box = document.getElementById("total_in_box")
+	let in_box = document.getElementById("in_box")
+	let in_sachets = document.getElementById("in_sachets")
+	let out_box = document.getElementById("out_box")
+	let out_sachets = document.getElementById("out_sachets")
+	let loss_box = document.getElementById("loss_box")
+	let loss_sachets = document.getElementById("loss_sachets")
+	let balance_box = document.getElementById("balance_box")
+	let balance_sachets = document.getElementById("balance_sachets")
+
+	let sachets_per_box = parseInt(total_in_box.value)
+	let total_sachets = (parseInt(in_box.value) * sachets_per_box) + parseInt(in_sachets.value)
+	total_sachets -= (parseInt(out_box.value) * sachets_per_box) + parseInt(out_sachets.value)
+	total_sachets -= (parseInt(loss_box.value) * sachets_per_box) + parseInt(loss_sachets.value)
+
+	let total_boxes = Math.floor(total_sachets / sachets_per_box)
+	total_sachets -= (total_boxes * sachets_per_box)
+
+	balance_box.innerText = total_boxes
+	balance_sachets.innerText = total_sachets
+}
+
 $(document).ready(() => {
 	$(".measure_arrow").on("click", (e) => {
 		let numberInput = $(e.currentTarget).parent().siblings(".measure_input")[0]
@@ -60,8 +83,8 @@ $(document).ready(() => {
 		updateAllLabels()
 	})
 
-	$(".stockitem").each((item)=>{
-		
+	$(".stockitem input").on("focusout", () => {
+		updateStockBalance()
 	})
 })
 
