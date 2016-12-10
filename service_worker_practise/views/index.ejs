@@ -11,6 +11,7 @@
       Offline here we come
     </p>
   </body>
+
   <script src="pouchdb.min.js"></script>
   <script src="pouchdbConfig.js"></script>
   <script>
@@ -18,36 +19,45 @@
       navigator.serviceWorker.register('sw.js')
       .then(function(reg) {
         console.log('Registration succeeded');
-      }).catch(function(error) {
+
+        // Local database
+        var local = new PouchDB('todos');
+
+        console.log(2222);
+
+        // Remote database
+        var remote = new PouchDB('199.253.246.2',  {
+          auth: authValue
+        });
+
+
+        var report = {
+          _id: 'report1',
+          title: "Test",
+          gender: "Male",
+          age: 17
+        }
+
+        local.put(report);
+
+        console.log(333);
+
+        local.get('report1').then((data)=>{
+          console.log(data);
+        })
+        .catch((error)=>{
+          console.log('error retrieving report1');
+        });
+
+        local.sync(remote, {
+          live: true,
+          retry: true
+        });
+      })
+      .catch(function(error) {
         console.log('Registration failed with ' + error);
       });
     }
-
-    // Local database
-    var local = new PouchDB('todos');
-
-    // Remote database
-    var remote = new PouchDB(pouchdbURI);
-
-    var report = {
-      _id: 'report1',
-      title: "Test",
-      gender: "Male",
-      age: 17:
-    }
-
-    local.put(report);
-
-    local.get('report1').then(function(data) {
-      console.log(data);
-    }).catch(function(error) {
-      console.log('error retrieving report1');
-    });
-
-    local.sync(remote, {
-      live: true,
-      retry: true
-    });
 
   </script>
 </html>
