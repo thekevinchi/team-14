@@ -101,6 +101,20 @@
 	background-color: #104D68;
 }
 
+.stockitem {
+	background-color: #99514A;
+}
+.stockitem .measure {
+	background-color: #AA735E;
+}
+.stockitem .measure.aggregate {
+	background-color: #80403E;	
+}
+.stockitem .measure_input:focus {
+	border-color: white;
+	background-color: #934432;
+}
+
 .comments {
 	background-color: #aaa;
 }
@@ -124,6 +138,9 @@
 }
 .measure_gender:first-child {
 	border-right: 2px solid white;
+}
+.stockitem .measure_gender:first-child {
+	border-right: none;
 }
 .measure_inputbox {
 	display: flex;
@@ -149,6 +166,9 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+.stockitem .measure_input {
+	width: 100%;
 }
 
 .measure_input::-webkit-input-placeholder {

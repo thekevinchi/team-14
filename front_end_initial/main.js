@@ -59,4 +59,23 @@ $(document).ready(() => {
 		numberInput.value = inputValue
 		updateAllLabels()
 	})
+
+	$(".stockitem").each((item)=>{
+		
+	})
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
