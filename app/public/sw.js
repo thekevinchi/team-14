@@ -4,13 +4,13 @@ this.addEventListener('install', function(event) {
       return cache.addAll([
         '/',
         '/bootstrap.min.css',
-        'bootstrap.min.js',
-        'jquery-3.1.1.min.js',
-        'main.css',
-        'main.js',
-        'pouchdb.min.js',
-        'style.css',
-        'sw.js'
+        '/bootstrap.min.js',
+        '/jquery-3.1.1.min.js',
+        '/main.css',
+        '/main.js',
+        '/pouchdb.min.js',
+        '/style.css',
+        '/sw.js'
       ]);
     })
   );

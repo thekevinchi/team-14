@@ -1401,6 +1401,16 @@
 		}
 
 		if ('serviceWorker' in navigator) {
+
+			// syncing to remote
+			local.sync(remote)
+			.on('complete', function () {
+				console.log("synced");
+			})
+			.on('error', function (err) {
+				console.log("Error syncing: " + err);
+			});
+
 			navigator.serviceWorker.register('sw.js')
 			.then(function(reg) {
 				console.log('Registration succeeded');
