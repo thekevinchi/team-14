@@ -163,7 +163,7 @@
 
 			<form id="main_form">
 				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane" id="sc">
+					<div role="tabpanel" onclick="changeActive('sc')" class="tab-pane" id="sc">
 						<div class="ms admissions">
 							<h3 class="ms_title">Admissions</h3>
 							<div class="ms_box">
@@ -701,7 +701,7 @@
 						</div>
 					</div>
 
-					<div role="tabpanel" class="tab-pane" id="otp">
+					<div role="tabpanel" onclick="changeActive('otp')" class="tab-pane" id="otp">
 						<div class="ms admissions">
 							<h3 class="ms_title">Admissions</h3>
 							<div class="ms_box">
@@ -1239,10 +1239,10 @@
 						</div>
 					</div>
 
-					<div role="tabpanel" class="tab-pane" id="screening">
+					<div role="tabpanel" onclick="changeActive('screening')" class="tab-pane" id="screening">
 					</div>
 
-					<div role="tabpanel" class="tab-pane active" id="stock">
+					<div role="tabpanel" onclick="changeActive('stock')" class="tab-pane active" id="stock">
 
 						<div class="ms stockitem">
 							<h3 class="ms_title">Plumpy'nut</h3>
@@ -1370,7 +1370,7 @@
 						<button type="submit" class="btn btn-primary btn-block" style="margin-top:20px;">Add food</button>
 					</div>
 
-					<div role="tabpanel" class="tab-pane" id="awsgls">
+					<div role="tabpanel" onclick="changeActive('awsgls')" class="tab-pane" id="awsgls">
 					</div>
 				</div>
 
@@ -1394,6 +1394,11 @@
 	<script src="pouchdb.min.js"></script>
   <script src="pouchdbConfig.js"></script>
 	<script>
+		var activeTab = "stock";
+
+		function changeActive(newTab){
+			activeTab = newTab;
+		}
 
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('sw.js')
@@ -1410,9 +1415,15 @@
 
 				$('#main_form').submit(function(e){
 					e.preventDefault();
-					if (stock tab active){
-						var data = {
-							"type": "stock"
+
+					var data = {
+						"_id": (new Date()).toISOString()
+					};
+
+					if (activeTab === "stock"){
+						data = {
+							"_id": (new Date()).toISOString(),
+							"type": "stock",
 			        "total_in_box": $('#total_in_box').val(),
 							"in_box": $('#in_box').val(),
 							"in_sachets": $('#in_sachets').val(),
@@ -1424,65 +1435,66 @@
 							"balance_sachets": $('#balance_sachets').val()
 						}
 					}
-					else if(otp tab is active){
-						var data = {
-							"type": "otp",
-				      "totalBeginning": "" {},
-			        "admissions": {
-			            "wfh_bmi_male": $('#am').val(),
-									"wfh_bmi_female": $('#af').val(),
-			            "muac_male": $('#').val(),
-									"muac_female": $('#').val(),
-			            "oedema_male": $('#').val(),
-									"oedema_female": $('#').val(),
-			            "relapse_male": $('#').val(),
-									"relapse_female": $('#').val(),
-			            "reAdmission_male": $('#').val(),
-									"reAdmission_female": $('#').val(),
-									"total_admission_male": $('#').val(),
-									"total_admission_female": $('#').val(),
-			        },
-			        "movedIn": {
-			            "movedFromSC_OTP": $('#').val(),
-			            "movedOther": $('#').val()
-			        },
-			        "discharges": {
-			            "promToOtp": $('#').val(),
-			            "recovered": $('#').val(),
-			            "death": $('#').val(),
-			            "defaulter": {
-			                "unconfirmed": $('#').val(),
-			                "confirmed": $('#').val()
-			            },
-			            "nonRecovery": {
-			                "medicalReferral":,
-			                "nonResponse": $('#').val(),
-			            }
-			          },
-		            "movedOut": {
-		                "otpToSc": $('#').val(),
-		                "otpToOtp": $('#').val()
-		            },
-				        "other": $('#').val()
-				      }
-					}
 
+					// else if(activeTab === "otp"){
+					// 	var data = {
+					// 		"type": "otp",
+				  //     "totalBeginning": "",
+			    //     "admissions": {
+			    //         "wfh_bmi_male": $('#am').val(),
+					// 				"wfh_bmi_female": $('#af').val(),
+			    //         "muac_male": $('#').val(),
+					// 				"muac_female": $('#').val(),
+			    //         "oedema_male": $('#').val(),
+					// 				"oedema_female": $('#').val(),
+			    //         "relapse_male": $('#').val(),
+					// 				"relapse_female": $('#').val(),
+			    //         "reAdmission_male": $('#').val(),
+					// 				"reAdmission_female": $('#').val(),
+					// 				"total_admission_male": $('#').val(),
+					// 				"total_admission_female": $('#').val(),
+			    //     },
+			    //     "movedIn": {
+			    //         "movedFromSC_OTP": $('#').val(),
+			    //         "movedOther": $('#').val()
+			    //     },
+			    //     "discharges": {
+			    //         "promToOtp": $('#').val(),
+			    //         "recovered": $('#').val(),
+			    //         "death": $('#').val(),
+			    //         "defaulter": {
+			    //             "unconfirmed": $('#').val(),
+			    //             "confirmed": $('#').val()
+			    //         },
+			    //         "nonRecovery": {
+			    //             "medicalReferral":,
+			    //             "nonResponse": $('#').val(),
+			    //         }
+			    //       },
+		      //       "movedOut": {
+		      //           "otpToSc": $('#').val(),
+		      //           "otpToOtp": $('#').val()
+		      //       },
+				  //       "other": $('#').val()
+				  //     }
+					// }
+
+					// storing the data locally
 					local.put(data)
-				})
 
-				// syncing to remote
-				local.sync(remote)
-				.on('complete', function () {
-					console.log("synced");
-				})
-				.on('error', function (err) {
-					console.log("Error syncing: " + err);
-				});
+					// syncing to remote
+					local.sync(remote)
+					.on('complete', function () {
+						console.log("synced");
+					})
+					.on('error', function (err) {
+						console.log("Error syncing: " + err);
+					});
 
-				remote.allDocs({'include_docs': true}).then((result)=>{
-					console.log(result);
-					result.rows.forEach((item)=>{
-						console.log(item);
+					remote.allDocs({'include_docs': true}).then((result)=>{
+						result.rows.forEach((item)=>{
+							console.log(item);
+						})
 					})
 				})
 			})
