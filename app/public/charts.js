@@ -124,13 +124,15 @@ $(document).ready(() => {
 		    type: 'bar',
 		    data: data,
 		    options: {
-		        barValueSpacing: 20,
+		        barValueSpacing: 10,
 		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    min: 0,
-		                }
-		            }]
+		            yAxes: [
+			            {
+			                ticks: {
+			                    min: 0,
+			                }
+			            }
+		            ]
 		        }
 		    }
 		})
