@@ -47,9 +47,11 @@
           console.log("Error syncing: " + err);
         });
 
-        remote.allDocs().then((result)=>{
+        remote.allDocs({'include_docs': true}).then((result)=>{
           console.log(result);
-          result.rows.forEach((item)=>{console.log(item);})
+          result.rows.forEach((item)=>{
+            console.log(item);
+          })
         })
       })
       .catch(function(error) {
