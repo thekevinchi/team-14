@@ -4,6 +4,10 @@
     color: white !important;
 }
 
+.nav-pills .active a {
+	background-color: #BA0093 !important;
+}
+
 /* Measurements */
 
 .ms {

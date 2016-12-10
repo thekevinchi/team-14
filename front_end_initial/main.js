@@ -10,7 +10,6 @@ for (let i = 0; i < labels.length; i++){
 	labelsHash[labels[i]] = document.getElementById(labels[i])
 }
 
-// WYXZF
 function sumValues(fieldsToGrab, isMale) {
 	let total = 0
 	for (let i = 0; i < fieldsToGrab.length; i++) {
