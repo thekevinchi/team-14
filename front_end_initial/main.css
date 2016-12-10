@@ -1,5 +1,142 @@
 .navbar .btn {
-    padding: 5px!important;
-    margin: 10px!important;
+    padding: 5px !important;
+    margin: 10px !important;
     color: white !important;
+}
+
+/* Measurements */
+
+.ms {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+.ms.admissions {
+	background-color: #2E9F68;
+}
+
+.ms_title {
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.ms_box {
+	width: 100%;
+	max-width: 840px;
+	padding: 24px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.measure {
+	width: 100%;
+	max-width: 250px;
+	display: flex;
+	flex-flow: column nowrap;
+	margin-bottom: 10px;
+}
+
+.ms.admissions .measure {
+	background-color: #39D068;
+}
+.ms.admissions .measure.aggregate {
+	background-color: #136C4E;	
+}
+
+.measure_title {
+	color: white;
+	text-align: center;
+	font-size: 18px;
+    margin: 10px 0;
+}
+.measure_box {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	padding: 10px;
+}
+.measure_gender {
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 0 20px;
+}
+.measure_gender:first-child {
+	border-right: 2px solid white;
+}
+.measure_inputbox {
+	display: flex;
+	flex-flow: row nowrap;	
+}
+.measure_input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-color: transparent;
+	color: white !important;
+	font-size: 30px;
+	line-height: 1;
+	outline: 0;
+	border: none;
+	width: 60px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 3px;
+	border-bottom: 2px solid transparent;
+	transition: background-color 0.3s ease;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.measure_input:focus {
+	border-color: white;
+	background-color: #35B368;
+}
+.measure_input::-webkit-input-placeholder {
+	color: white;
+}
+.measure_arrows {
+	margin-left: 5px;
+	display: flex;
+	flex-flow: column nowrap;
+}
+.measure_arrow{
+	background-color: transparent;
+	outline: 0;
+	margin: 0;
+	padding: 0;
+	width: 0; 
+	height: 0; 
+	border-top: none;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 15px solid white;
+}
+.measure_arrow.down{
+	margin-top: 10px;
+	transform: rotate(180deg);
+}
+.measure_sex {
+	font-size: 18px;
+	text-transform: uppercase;
+	color: white;
+	text-align: center;
+	margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+	h1 {
+		font-size: 24px;
+		margin: 20px 10px;
+	}
+	.ms_box {
+		padding: 0;
+	}
+	.measure {
+		max-width: none;
+	}
 }
