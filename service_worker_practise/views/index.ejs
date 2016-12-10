@@ -29,22 +29,14 @@
         });
 
 
-        var report = {
-          _id: 'report2',
-          title: "Test",
-          gender: "Male",
-          age: 17
-        }
-
-        local.put(report)
-
-        local.get('report2').then((data)=>{
-          console.log("local copy");
-          console.log(data);
-        })
-        .catch((error)=>{
-          console.log('error retrieving report2');
-        });
+        // var report = {
+        //   _id: 'report3',
+        //   title: "Test",
+        //   gender: "Male",
+        //   age: 17
+        // }
+        //
+        // local.put(report)
 
         // syncing to remote
         local.sync(remote)
@@ -55,16 +47,10 @@
           console.log("Error syncing: " + err);
         });
 
-        local.allDocs().then((result)=>{
-          console.log("l1");
-          console.log(result);
-        })
-
         remote.allDocs().then((result)=>{
-          console.log("r1");
           console.log(result);
+          result.rows.forEach((item)=>{console.log(item);})
         })
-
       })
       .catch(function(error) {
         console.log('Registration failed with ' + error);
