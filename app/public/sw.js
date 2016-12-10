@@ -3,7 +3,14 @@ this.addEventListener('install', function(event) {
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         '/',
-        '/style.css'
+        '/bootstrap.min.css',
+        'bootstrap.min.js',
+        'jquery-3.1.1.min.js',
+        'main.css',
+        'main.js',
+        'pouchdb.min.js',
+        'style.css',
+        'sw.js'
       ]);
     })
   );
