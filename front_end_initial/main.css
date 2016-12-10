@@ -12,9 +12,6 @@
 	align-items: center;
 	margin-top: 20px;
 }
-.ms.admissions {
-	background-color: #2E9F68;
-}
 
 .ms_title {
 	color: white;
@@ -40,11 +37,64 @@
 	margin-bottom: 10px;
 }
 
-.ms.admissions .measure {
+.admissions {
+	background-color: #2E9F68;
+}
+.admissions .measure {
 	background-color: #39D068;
 }
-.ms.admissions .measure.aggregate {
+.admissions .measure.aggregate {
 	background-color: #136C4E;	
+}
+.admissions .measure_input:focus {
+	border-color: white;
+	background-color: #35B368;
+}
+
+.movement_out,
+.movement_in {
+	background-color: #F1A324;
+}
+.movement_out .measure,
+.movement_in .measure {
+	background-color: #FFBF37;
+}
+.movement_out .measure.aggregate,
+.movement_in .measure.aggregate {
+	background-color: #D78A1D;	
+}
+.movement_out .measure_input:focus,
+.movement_in .measure_input:focus {
+	border-color: white;
+	background-color: #E2A931;
+}
+
+.discharges {
+	background-color: #E80D28;
+}
+.discharges .measure {
+	background-color: #ED4257;
+}
+.discharges .measure.aggregate {
+	background-color: #B5192C;	
+}
+.discharges .measure_input:focus {
+	border-color: white;
+	background-color: #B5192C;
+}
+
+.total {
+	background-color: #309CCA;
+}
+.total .measure {
+	background-color: #158FB7;
+}
+.total .measure.aggregate {
+	background-color: #104D68;	
+}
+.total .measure_input:focus {
+	border-color: white;
+	background-color: #104D68;
 }
 
 .measure_title {
@@ -92,10 +142,7 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
-.measure_input:focus {
-	border-color: white;
-	background-color: #35B368;
-}
+
 .measure_input::-webkit-input-placeholder {
 	color: white;
 }
