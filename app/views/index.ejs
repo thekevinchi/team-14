@@ -1377,7 +1377,7 @@
 				<div class="ms comments">
 					<h3 class="ms_title">Comments</h3>
 					<div class="ms_box">
-						<textarea name="" id="" class="measure_comments" placeholder="Please enter details of information that will support the interpretation of monthly data (for example, explanation for discrepancies, details of stock-outs, increases in admissions, higher than expected death or defaulter rates, information on mass screening etc)."></textarea>
+						<textarea name="" id="comments" class="measure_comments" placeholder="Please enter details of information that will support the interpretation of monthly data (for example, explanation for discrepancies, details of stock-outs, increases in admissions, higher than expected death or defaulter rates, information on mass screening etc)."></textarea>
 						<input type="submit" href="#" class="btn btn-success btn-large">
 						<a href="#" class="btn btn-primary btn-large">Approve</a>
 					</div>
@@ -1424,60 +1424,77 @@
 						data = {
 							"_id": (new Date()).toISOString(),
 							"type": "stock",
-			        "total_in_box": $('#total_in_box').val(),
-							"in_box": $('#in_box').val(),
 							"in_sachets": $('#in_sachets').val(),
-							"out_box": $('#out_box').val(),
 							"out_sachets": $('#out_sachets').val(),
 							"loss_box": $('#loss_box').val(),
 							"loss_sachets": $('#loss_sachets').val(),
-							"balance_box": $('#balance_box').val(),
-							"balance_sachets": $('#balance_sachets').val()
+							"balance_box": $('#balance_box').text(),
+							"balance_sachets": $('#balance_sachets').text(),
+							"comments": $('#comments').val()
 						}
 					}
 
-					// else if(activeTab === "otp"){
-					// 	var data = {
-					// 		"type": "otp",
-				  //     "totalBeginning": "",
-			    //     "admissions": {
-			    //         "wfh_bmi_male": $('#am').val(),
-					// 				"wfh_bmi_female": $('#af').val(),
-			    //         "muac_male": $('#').val(),
-					// 				"muac_female": $('#').val(),
-			    //         "oedema_male": $('#').val(),
-					// 				"oedema_female": $('#').val(),
-			    //         "relapse_male": $('#').val(),
-					// 				"relapse_female": $('#').val(),
-			    //         "reAdmission_male": $('#').val(),
-					// 				"reAdmission_female": $('#').val(),
-					// 				"total_admission_male": $('#').val(),
-					// 				"total_admission_female": $('#').val(),
-			    //     },
-			    //     "movedIn": {
-			    //         "movedFromSC_OTP": $('#').val(),
-			    //         "movedOther": $('#').val()
-			    //     },
-			    //     "discharges": {
-			    //         "promToOtp": $('#').val(),
-			    //         "recovered": $('#').val(),
-			    //         "death": $('#').val(),
-			    //         "defaulter": {
-			    //             "unconfirmed": $('#').val(),
-			    //             "confirmed": $('#').val()
-			    //         },
-			    //         "nonRecovery": {
-			    //             "medicalReferral":,
-			    //             "nonResponse": $('#').val(),
-			    //         }
-			    //       },
-		      //       "movedOut": {
-		      //           "otpToSc": $('#').val(),
-		      //           "otpToOtp": $('#').val()
-		      //       },
-				  //       "other": $('#').val()
-				  //     }
-					// }
+					else if(activeTab === "otp"){
+						var data = {
+							"_id": (new Date()).toISOString(),
+							"type": "otp",
+			        "admissions": {
+			            "wfh_bmi_male": $('#am').val(),
+									"wfh_bmi_female": $('#af').val(),
+			            "muac_male": $('#bm').val(),
+									"muac_female": $('#bf').val(),
+			            "oedema_male": $('#cm').val(),
+									"oedema_female": $('#cf').val(),
+			            "relapse_male": $('#dm').val(),
+									"relapse_female": $('#df').val(),
+			            "readmission_male": $('#em').val(),
+									"readmission_female": $('#ef').val(),
+									"total_admission_male": $('#Wm').text(),
+									"total_admission_female": $('#Wf').text(),
+			        },
+			        "moved_in": {
+			            "from_scopt_male": $('#fm').val(),
+									"from_scopt_female": $('#ff').val(),
+			            "other_male": $('#gm').val(),
+									"other_female": $('#gf').val(),
+									"total_male": $('#Ym').text(),
+									"total_female": $('#Yf').text()
+			        },
+			        "discharges": {
+		            "recovered_male": $('#hm').val(),
+								"recovered_female": $('#hf').val(),
+								"death_male": $('#im').val(),
+								"death_female": $('#if').val(),
+								"unconfirmed_male": $('#jm').val(),
+								"unconfirmed_female": $('#jf').val(),
+								"confirmed_male": $('#km').val(),
+								"confirmed_female": $('#kf').val(),
+								"medical_referral_male": $('#lm').val(),
+								"medical_referral_female": $('#lf').val(),
+								"non_response_male": $('#mm').val(),
+								"non_response_female": $('#mf').val(),
+								"total_discharges_male": $('#Xm').text(),
+								"total_discharges_female": $('#Xf').text()
+		          },
+							"moved_out": {
+			            "otp_to_sc_male": $('#nm').val(),
+									"otp_to_sc_female": $('#nf').val(),
+			            "otp_to_otp_male": $('#om').val(),
+									"otp_to_otp_female": $('#of').val(),
+									"other_male": $('#pm').val(),
+									"other_female": $('#pf').val(),
+									"total_male": $('#Zm').text(),
+									"total_female": $('#Zf').text()
+			        },
+		          "total": {
+								"beginning_male": $('#Vm').text(),
+								"beginning_female": $('#Vf').text(),
+								"end_male": $('#Fm').text(),
+								"end_female": $('#Ff').text()
+							},
+							"comments": $('#comments').val()
+				    }
+					}
 
 					// storing the data locally
 					local.put(data)
