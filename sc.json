@@ -1,55 +1,32 @@
 {
     "SC": {
-        "newAdmissions": {
-            "wfh/bmi": "",
-            "muac": "",
-            "oedema": "",
-            "relapse": "",
-            "readmission": "",
-            "totalAdmissions": ""
+        "totalBeginning": "" {
+        },
+        "admissions": {
+            "wfh_bmi": "0",
+            "muac": "0",
+            "oedema": "0",
+            "relapse": "0",
+            "reAdmission": "0",
+        },
+        "moved": {
+            "movedFromOtp": "0",
+            "movedOther": "0"
         },
         "discharges": {
-            "promToOtp": "",
-            "recovered": "",
-            "death": "",
+            "promToOtp": "0",
+            "recovered": "0",
+            "death": "0",
             "defaulter": {
-              "unconfirmed" : "",
-              "confirmed": ""
+                "unconfirmed": "0",
+                "confirmed": "0"
             },
             "nonRecovery": {
-              "medicalReferral": "",
-              "nonResponse": "",
-            }
-
-
-
-            }
-
-
+                "medicalReferral": "0",
+                "nonResponse": "0",
+            },
+            "other": "0" {
         }
-    }
-
-}
-
-{
-    "glossary": {
-        "title": "example glossary",
-		"GlossDiv": {
-            "title": "S",
-			"GlossList": {
-                "GlossEntry": {
-                    "ID": "SGML",
-					"SortAs": "SGML",
-					"GlossTerm": "Standard Generalized Markup Language",
-					"Acronym": "SGML",
-					"Abbrev": "ISO 8879:1986",
-					"GlossDef": {
-                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
-						"GlossSeeAlso": ["GML", "XML"]
-                    },
-					"GlossSee": "markup"
-                }
-            }
-        }
+      }
     }
 }
