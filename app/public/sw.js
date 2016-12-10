@@ -9,8 +9,7 @@ this.addEventListener('install', function(event) {
         '/main.css',
         '/main.js',
         '/pouchdb.min.js',
-        '/style.css',
-        '/sw.js'
+        '/style.css'
       ]);
     })
   );
