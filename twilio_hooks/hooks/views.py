@@ -8,6 +8,14 @@ def index(request):
 
 
 def ingress(request):
+    print request
+    if request.method == 'POST':
+        message = request.POST.get("Body")
+        number = request.POST.get("")
+        #send data to js server
+        #push
+
+
     # todo send post request to requered place with data
     # get data from twilio_send_sms hook
     print "foo"
