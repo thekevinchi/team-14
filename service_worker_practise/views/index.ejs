@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tester</title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+  </head>
+  <body>
+    <h1>Looks Good</h1>
+    <p>
+      Offline here we come
+    </p>
+  </body>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+      .then(function(reg) {
+        console.log('Registration succeeded');
+      }).catch(function(error) {
+        console.log('Registration failed with ' + error);
+      });
+    }
+  </script>
+</html>
