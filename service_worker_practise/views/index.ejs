@@ -12,6 +12,7 @@
     </p>
   </body>
   <script src="pouchdb.min.js"></script>
+  <script src="pouchdbConfig.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -26,7 +27,7 @@
     var local = new PouchDB('todos');
 
     // Remote database
-    var remote = new PouchDB('http://localhost:5984/todos');
+    var remote = new PouchDB(pouchdbURI);
 
     var report = {
       _id: 'report1',
