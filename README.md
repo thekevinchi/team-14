@@ -5,3 +5,4 @@ Team members:
 - Anirudh Pillai
 - Abdullah Adel
 - Olive Hopkin
+- Kevin Tozer
